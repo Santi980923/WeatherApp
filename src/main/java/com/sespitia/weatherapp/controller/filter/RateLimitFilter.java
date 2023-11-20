@@ -36,7 +36,7 @@ public class RateLimitFilter implements Filter {
         if (!rateLimitService.tryConsume(username)) {
             ResponseEntity<String> rateLimitResponse = ResponseEntity
                     .status(HttpStatus.TOO_MANY_REQUESTS)
-                    .body("Se ha excedido el límite de solicitudes. Por favor, inténtelo de nuevo más tarde.");
+                    .body("Se ha excedido el límite de solicitudes. Por favor, intentelo de nuevo mas tarde.");
 
             response.setStatus(rateLimitResponse.getStatusCode().value());
             response.getWriter().write(objectMapper.writeValueAsString(rateLimitResponse.getBody()));

@@ -30,7 +30,7 @@ public class LimitService {
     }
 
     public Bucket createNewBucket() {
-        Bandwidth limit = Bandwidth.classic(apiRateLimit, Refill.greedy(apiRateLimit, Duration.ofMinutes(1)));
+        Bandwidth limit = Bandwidth.classic(apiRateLimit, Refill.greedy(apiRateLimit, Duration.ofHours(1)));
         return Bucket.builder()
                 .addLimit(limit)
                 .build();
